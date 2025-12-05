@@ -1,0 +1,55 @@
+import random
+
+# 1. Create a set and a list with 10 elements
+# Set created from an ordered iterable (but sets themselves are unordered)
+my_set = set(range(1, 11))         # contains 1–10
+my_list = list(range(1, 11))[::-1] # reversed order: 10–1
+
+print("Original set:", my_set)
+print("Original list:", my_list)
+
+# 2. Print the 3rd element from each structure
+# Sets cannot be indexed, so convert to a sorted list for positional access
+sorted_set = sorted(my_set)
+print("\n3rd element in set (using sorted list):", sorted_set[2])
+print("3rd element in list:", my_list[2])
+
+# 3. Print each element in random order
+print("\nSet elements in random order:", random.sample(sorted_set, len(sorted_set)))
+print("List elements in random order:", random.sample(my_list, len(my_list)))
+
+# 4. Add an 11th element to the end
+my_set.add(11)
+my_list.append(11)
+
+print("\nAfter adding 11:")
+print("Set:", my_set)
+print("List:", my_list)
+
+# 5. Remove the first element
+# For the list:
+first_list_element = my_list.pop(0)
+
+# For the set: remove element 1 (the smallest)
+first_set_element = min(my_set)
+my_set.remove(first_set_element)
+
+print("\nAfter removing the first element:")
+print("Removed from list:", first_list_element)
+print("Removed from set:", first_set_element)
+print("Set:", my_set)
+print("List:", my_list)
+
+# 6. Remove the same element from both structures
+# Let's remove the number 5 from both
+element_to_remove = 5
+
+if element_to_remove in my_set:
+    my_set.remove(element_to_remove)
+
+if element_to_remove in my_list:
+    my_list.remove(element_to_remove)
+
+print("\nAfter removing element", element_to_remove, "from both:")
+print("Set:", my_set)
+print("List:", my_list)
